@@ -5,7 +5,7 @@ import {
   Copy, Check, Sparkles, Loader2, ArrowRight, 
   History, Trash2, Zap, ChevronDown, Type,
   Shield, Globe, Mail, BookOpen, Info,
-  QuestionMarkCircle, Star, MessageSquare,
+  Star, MessageSquare,
   Layout, Smartphone, Search
 } from 'lucide-react';
 import toast, { Toaster } from 'react-hot-toast';
