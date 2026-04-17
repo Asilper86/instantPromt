@@ -325,7 +325,7 @@ export default function App() {
                     Nuestra plataforma está diseñada para profesionales que no pueden perder tiempo ajustando instrucciones manualmente. Al automatizar la inclusión de **restricciones, formato de salida y ejemplos de pocos disparos (few-shot prompting)**, InstantPrompt se convierte en el puente esencial entre tu idea base y un resultado de nivel producción.
                   </p>
                   <p>
-                    Además, hemos optimizado cada línea de código para cumplir con los estándares de **Google AdSense Gold Standard**, garantizando una experiencia de usuario ultra-rápida (LCP < 1.2s) y un contenido de alto valor semántico que los motores de búsqueda aman.
+                    Además, hemos optimizado cada línea de código para cumplir con los estándares de **Google AdSense Gold Standard**, garantizando una experiencia de usuario ultra-rápida (LCP &lt; 1.2s) y un contenido de alto valor semántico que los motores de búsqueda aman.
                   </p>
                 </div>
               </div>
