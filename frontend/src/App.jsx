@@ -187,7 +187,7 @@ export default function App() {
           <AdPlaceholder type="top" id="header-leaderboard" />
 
           {/* Hero Section (Original Text) */}
-          <section className="text-center mb-16 md:mb-24 mt-8">
+          <section className="text-center mb-24 md:mb-32 mt-16 md:mt-24">
             <motion.h1 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -202,11 +202,11 @@ export default function App() {
           </section>
 
           {/* Tool Grid (7/5 Split) */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-32 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 mb-32 items-start">
             
             {/* Input Column */}
-            <div className="lg:col-span-7 space-y-6">
-              <div className="glass-card rounded-[2.5rem] p-8 md:p-10">
+            <div className="lg:col-span-7 space-y-8">
+              <div className="glass-card rounded-[2.5rem] p-8 md:p-12 border border-white/5 shadow-2xl">
                 <div className="flex justify-between items-center mb-6">
                   <h2 className="text-lg font-bold flex items-center gap-2 uppercase tracking-widest text-primary">
                     <Type className="w-5 h-5" /> Tu Solicitud
@@ -272,8 +272,8 @@ export default function App() {
             </div>
 
             {/* Output Column */}
-            <div className="lg:col-span-5 flex flex-col gap-6">
-              <div className="flex-1 glass-card rounded-[2.5rem] p-8 md:p-10 flex flex-col min-h-[500px] border border-primary/10">
+            <div className="lg:col-span-5 flex flex-col gap-8">
+              <div className="flex-1 glass-card rounded-[2.5rem] p-8 md:p-12 flex flex-col min-h-[500px] border border-primary/20 shadow-2xl shadow-primary/5">
                 <div className="flex justify-between items-center mb-8">
                   <div className="flex items-center gap-3">
                     <div className="w-2 h-2 rounded-full bg-primary animate-ping" />
@@ -306,8 +306,8 @@ export default function App() {
           </div>
 
           {/* --- CONTENT FOR ADSENSE APPROVAL (400+ WORDS) --- */}
-          <section id="how-it-works" className="py-24 border-t border-white/5">
-            <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-16">
+          <section id="how-it-works" className="py-32 border-t border-white/5">
+            <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-16 lg:gap-24">
               <div className="lg:col-span-2 space-y-10">
                 <div className="space-y-4">
                   <h2 className="text-4xl font-black tracking-tighter">¿Por qué usar <span className="text-primary">InstantPrompt</span> Pro?</h2>
@@ -365,30 +365,30 @@ export default function App() {
           </section>
 
           {/* --- EXAMPLES SECTION --- */}
-          <section id="examples" className="py-24 border-t border-white/5">
-            <h2 className="text-3xl font-black text-center mb-16 tracking-tighter">Ejemplos de <span className="text-primary">Transformación</span></h2>
-            <div className="grid md:grid-cols-2 gap-8">
-               <div className="glass-card p-8 rounded-3xl border border-white/5 space-y-4">
-                  <span className="text-[10px] font-black uppercase text-red-500">Antes (Prompt Débil)</span>
+          <section id="examples" className="py-32 border-t border-white/5">
+            <h2 className="text-3xl md:text-4xl font-black text-center mb-20 tracking-tighter">Ejemplos de <span className="text-primary">Transformación</span></h2>
+            <div className="grid md:grid-cols-2 gap-10 lg:gap-16">
+               <div className="glass-card p-10 rounded-3xl border border-white/5 space-y-6 shadow-xl">
+                  <span className="text-[10px] font-black uppercase text-red-500 tracking-wider">Antes (Prompt Débil)</span>
                   <p className="text-gray-400 text-sm italic">"Escribe un post para Instagram sobre café."</p>
                   <div className="h-px bg-white/5 w-full" />
-                  <span className="text-[10px] font-black uppercase text-green-500">Después (Megaprompt Pro)</span>
+                  <span className="text-[10px] font-black uppercase text-green-500 tracking-wider">Después (Megaprompt Pro)</span>
                   <p className="text-white text-sm font-mono leading-relaxed bg-black/40 p-4 rounded-xl">"Actúa como un Director Creativo experto en Social Media. Tu tarea es redactar 3 variantes de un post de Instagram sobre café artesanal, usando un tono entusiasta, incluyendo 5 hashtags estratégicos y una llamada a la acción irresistible..."</p>
                </div>
-               <div className="glass-card p-8 rounded-3xl border border-white/5 space-y-4">
-                  <span className="text-[10px] font-black uppercase text-red-500">Antes (Prompt Débil)</span>
+               <div className="glass-card p-10 rounded-3xl border border-white/5 space-y-6 shadow-xl">
+                  <span className="text-[10px] font-black uppercase text-red-500 tracking-wider">Antes (Prompt Débil)</span>
                   <p className="text-gray-400 text-sm italic">"Hazme un resumen de este texto de marketing."</p>
                   <div className="h-px bg-white/5 w-full" />
-                  <span className="text-[10px] font-black uppercase text-green-500">Después (Megaprompt Pro)</span>
+                  <span className="text-[10px] font-black uppercase text-green-500 tracking-wider">Después (Megaprompt Pro)</span>
                   <p className="text-white text-sm font-mono leading-relaxed bg-black/40 p-4 rounded-xl">"Asume el rol de un Analista de Datos Senior. Analiza el siguiente texto y genera un resumen ejecutivo en formato Bullet Points, destacando los KPIs principales, los puntos de dolor del cliente y 3 recomendaciones de mejora técnica..."</p>
                </div>
             </div>
           </section>
 
           {/* --- FAQ SECTION --- */}
-          <section id="faq" className="py-24 border-t border-white/5 max-w-4xl mx-auto">
-            <h2 className="text-3xl font-black text-center mb-16 tracking-tighter">Preguntas <span className="text-primary">Frecuentes</span></h2>
-            <div className="glass-card rounded-[2.5rem] p-8 md:p-12">
+          <section id="faq" className="py-32 border-t border-white/5 max-w-4xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-black text-center mb-20 tracking-tighter">Preguntas <span className="text-primary">Frecuentes</span></h2>
+            <div className="glass-card rounded-[2.5rem] p-10 md:p-16 shadow-2xl">
               <FAQItem 
                 question="¿Qué es el Prompt Engineering?" 
                 answer="Es la disciplina de diseñar, refinar y optimizar las instrucciones enviadas a un modelo de lenguaje para obtener resultados más precisos y útiles. InstantPrompt automatiza esta técnica compleja." 
