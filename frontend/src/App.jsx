@@ -166,7 +166,6 @@ export default function App() {
               <a href="#how-it-works" className="hover:text-white transition-colors">Cómo Funciona</a>
               <a href="#examples" className="hover:text-white transition-colors">Ejemplos</a>
               <a href="#faq" className="hover:text-white transition-colors">FAQ</a>
-              <button className="px-6 py-2.5 bg-primary text-white rounded-full hover:scale-105 transition-all shadow-lg shadow-primary/20">Acceso Pro</button>
             </nav>
           </div>
         </header>
@@ -181,7 +180,7 @@ export default function App() {
             <motion.h1 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="text-5xl md:text-8xl font-black tracking-tighter mb-8 bg-clip-text text-transparent bg-gradient-to-b from-white to-gray-600"
+              className="text-4xl md:text-6xl lg:text-8xl font-black tracking-tighter mb-8 bg-clip-text text-transparent bg-gradient-to-b from-white to-gray-600"
             >
               Ingeniería de <span className="text-gradient">Prompts</span><br/>
               en un solo clic.
