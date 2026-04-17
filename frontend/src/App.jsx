@@ -11,19 +11,48 @@ import {
 import toast, { Toaster } from 'react-hot-toast';
 
 // --- Global AdSense Component ---
-const AdPlaceholder = ({ type, id }) => {
+const AdPlaceholder = ({ type, slotId }) => {
   const styles = {
     top: "h-[90px] md:h-[90px] sm:h-[50px] max-w-[728px]",
     content: "h-auto min-h-[150px] w-full",
     bottom: "h-[250px] w-full max-w-[300px]"
   };
-  return (
-    <div className={`mx-auto my-8 glass-card rounded-2xl border border-white/5 flex items-center justify-center relative overflow-hidden ${styles[type]}`}>
-      <div className="flex flex-col items-center opacity-30">
-        <span className="text-[10px] uppercase tracking-widest font-bold mb-1">Publicidad</span>
-        <span className="text-[9px] font-mono text-gray-500">[ Slot ID: {id} ]</span>
+
+  // Inicializar el anuncio cuando el componente se monta
+  useEffect(() => {
+    // Solo inicializar si no estamos en entorno local y si adsbygoogle está disponible
+    if (!import.meta.env.DEV && window.adsbygoogle) {
+      try {
+        window.adsbygoogle.push({});
+      } catch (err) {
+        console.error("AdSense Error:", err);
+      }
+    }
+  }, []);
+
+  // En entorno de desarrollo (localhost), mostramos un hueco visual para no generar clicks falsos
+  if (import.meta.env.DEV) {
+    return (
+      <div className={`mx-auto my-8 glass-card rounded-2xl border border-white/5 flex items-center justify-center relative overflow-hidden ${styles[type]}`}>
+        <div className="flex flex-col items-center opacity-30">
+          <span className="text-[10px] uppercase tracking-widest font-bold mb-1">Anuncio (Modo Local)</span>
+          <span className="text-[9px] font-mono text-gray-500">[ Slot ID: {slotId || 'Pendiente'} ]</span>
+        </div>
       </div>
-      <div className="absolute inset-0 bg-gradient-to-tr from-primary/5 to-transparent pointer-events-none" />
+    );
+  }
+
+  // En producción (Netlify), inyectamos la etiqueta real de AdSense
+  return (
+    <div className={`mx-auto my-8 overflow-hidden rounded-xl ${styles[type]}`}>
+      <ins 
+        className="adsbygoogle"
+        style={{ display: "block", width: "100%", height: "100%" }}
+        data-ad-client="ca-pub-8822511115687358"
+        data-ad-slot={slotId || ""} // Aquí irán los IDs numéricos que te dé AdSense
+        data-ad-format={type === 'content' ? 'fluid' : 'auto'}
+        data-full-width-responsive="true"
+      ></ins>
     </div>
   );
 };
