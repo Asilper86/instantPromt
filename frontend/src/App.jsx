@@ -6,7 +6,7 @@ import {
   History, Trash2, Zap, ChevronDown, Type,
   Shield, Globe, Mail, BookOpen, Info,
   Star, MessageSquare,
-  Layout, Smartphone, Search
+  Layout, Smartphone, Search, Menu, X
 } from 'lucide-react';
 import toast, { Toaster } from 'react-hot-toast';
 
@@ -66,6 +66,7 @@ export default function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [isCopied, setIsCopied] = useState(false);
   const [history, setHistory] = useState([]);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const resultEndRef = useRef(null);
 
@@ -156,21 +157,31 @@ export default function App() {
         </Helmet>
 
         {/* --- Header Pro --- */}
-        <header className="glass-card border-x-0 border-t-0 py-4 px-6 sticky top-0 z-[100] backdrop-blur-2xl">
+        <header className="fixed top-0 w-full bg-dark/80 border-b border-white/5 py-4 px-6 z-[100] backdrop-blur-2xl transition-all">
           <div className="max-w-7xl mx-auto flex justify-between items-center">
             <div className="flex items-center gap-2">
               <Zap className="w-7 h-7 text-primary fill-primary/20" />
               <span className="text-2xl font-black tracking-tight">Instant<span className="text-primary">Prompt</span></span>
             </div>
-            <nav className="hidden lg:flex items-center gap-10 text-xs font-bold uppercase tracking-widest text-gray-400">
+            
+            {/* Desktop Nav */}
+            <nav className="hidden md:flex items-center gap-10 text-xs font-bold uppercase tracking-widest text-gray-400">
               <a href="#how-it-works" className="hover:text-white transition-colors">Cómo Funciona</a>
               <a href="#examples" className="hover:text-white transition-colors">Ejemplos</a>
               <a href="#faq" className="hover:text-white transition-colors">FAQ</a>
             </nav>
+
+            {/* Mobile Nav Button */}
+            <button 
+              className="md:hidden p-2 text-gray-400 hover:text-white transition-colors"
+              onClick={() => setIsMobileMenuOpen(true)}
+            >
+              <Menu className="w-6 h-6" />
+            </button>
           </div>
         </header>
 
-        <main className="max-w-7xl mx-auto px-6 py-12 relative z-10">
+        <main className="max-w-7xl mx-auto px-6 pt-32 pb-12 relative z-10">
           
           {/* AdSense Top Banner */}
           <AdPlaceholder type="top" id="header-leaderboard" />
@@ -445,6 +456,30 @@ export default function App() {
             </div>
           </div>
         </footer>
+
+        {/* --- Mobile Menu Overlay --- */}
+        <AnimatePresence>
+          {isMobileMenuOpen && (
+            <motion.div 
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              className="fixed inset-0 z-[200] bg-dark/95 backdrop-blur-3xl flex flex-col items-center justify-center"
+            >
+              <button 
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="absolute top-6 right-6 p-2 text-gray-400 hover:text-white"
+              >
+                <X className="w-8 h-8" />
+              </button>
+              <nav className="flex flex-col items-center gap-10 text-xl font-black uppercase tracking-widest text-gray-400">
+                <a href="#how-it-works" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-white transition-colors">Cómo Funciona</a>
+                <a href="#examples" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-white transition-colors">Ejemplos</a>
+                <a href="#faq" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-white transition-colors">FAQ</a>
+              </nav>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </HelmetProvider>
   );
